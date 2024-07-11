@@ -3,10 +3,6 @@
 import sys
 
 def read_file(filename):
-    """
-    This function opens a file and returns its contents.
-    If the file is not found, it returns a message.
-    """
     try:
         with open(filename, 'r') as file:
             return file.readlines()
@@ -14,11 +10,8 @@ def read_file(filename):
         return ['File not found!']
 
 def main():
-    if len(sys.argv) < 2:
-        print("Error: no file specified.")
-        return
+    filename = 'text.txt'
     
-    filename = sys.argv[1]
     content = read_file(filename)
     
     if content == ['File not found!']:
