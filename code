@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import sys
+
+def read_file(filename):
+    """
+    This function opens a file and returns its contents.
+    If the file is not found, it returns a message.
+    """
+    try:
+        with open(filename, 'r') as file:
+            return file.readlines()
+    except FileNotFoundError:
+        return ['File not found!']
+
+def main():
+    if len(sys.argv) < 2:
+        print("Error: no file specified.")
+        return
+    
+    filename = sys.argv[1]
+    content = read_file(filename)
+    
+    if content == ['File not found!']:
+        print('File not found!')
+    else:
+        print(''.join(content))
+    
+    print(f"Number of lines: {len(content)}")
+
+if __name__ == '__main__':
+    main()
